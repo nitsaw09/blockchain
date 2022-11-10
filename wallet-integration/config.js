@@ -1,0 +1,3 @@
+export const env = {
+  CONTRACT_ADDRESS: "0x4A307fb8246e7039C7f01e9F920d1d3Fc23e79dd"
+};
