@@ -7,7 +7,7 @@ class Token {
             ethers.getDefaultProvider('ropsten')
         ], 1);
         const contract = new ethers.Contract('0xF064631e04c051032C01C65A51AE58Ee992ee83A', abi, this.provider);
-        const wallet = new ethers.Wallet('2c34e2e00256a52f9d9433ef718721d3e308539956f68927bcdc73a39908ca7d', this.provider);
+        const wallet = new ethers.Wallet(process.env.WALLET_PRIVATE_KEY, this.provider);
         this.contract = contract.connect(wallet);
     }
 
