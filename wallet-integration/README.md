@@ -28,9 +28,9 @@ npm run lint
 ```
 
 ### Reference
-Vuejs: https://vuejs.org/guide/introduction.html
-Ethers.js: https://docs.ethers.org/v5/
-ERC721: https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
-Gasless Mint: https://editorial.mintable.com/lazy-vs-gasless-how-gas-free-is-gas-free-minting/
-MetaMask: https://docs.metamask.io/guide/
-Torus: https://tor.us/index.html
+- Vuejs: https://vuejs.org/guide/introduction.html
+- Ethers.js: https://docs.ethers.org/v5/
+- ERC721: https://ethereum.org/en/developers/docs/standards/tokens/erc-721/
+- Gasless Mint: https://editorial.mintable.com/lazy-vs-gasless-how-gas-free-is-gas-free-minting/
+- MetaMask: https://docs.metamask.io/guide/
+- Torus: https://tor.us/index.html
