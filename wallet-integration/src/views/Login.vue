@@ -20,7 +20,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.account = localStorage.getItem("account");
-    }, 100);
+    }, 500);
   },
   components: {
     MetaMask,

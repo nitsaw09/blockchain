@@ -24,14 +24,14 @@ export default {
   data() {
     return {
       isLogin: false,
-      account: sessionStorage.getItem("account")
+      account: null
     };
   },
   mounted() {
-    setInterval(() => {
+    setInterval(async () => {
       if (window.torus && window.torus.isLoggedIn) {
         this.isLogin = true;
-        global.provider = window.torus.ethereum;
+        global.provider = window.torus.provider;
         this.account = window.torus.ethereum.selectedAddress;
         localStorage.setItem("account", this.account);
       } else if (
@@ -40,6 +40,12 @@ export default {
       ) {
         this.isLogin = true;
         global.provider = window.ethereum;
+        if (
+          this.account &&
+          localStorage.getItem("account") !== window.ethereum.selectedAddress
+        ) {
+          localStorage.setItem("nonce", "123456");
+        }
         this.account = window.ethereum.selectedAddress;
         localStorage.setItem("account", this.account);
       } else {
@@ -53,11 +59,9 @@ export default {
       if (wallet === "Torus") {
         await window.torus.logout();
       }
-      localStorage.removeItem("wallet");
       localStorage.removeItem("account");
-      delete window.provider;
       this.isLogin = false;
-      this.account = 0;
+      this.account = null;
     }
   }
 };

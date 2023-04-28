@@ -11,6 +11,9 @@ class Token {
         this.contract = contract.connect(wallet);
     }
 
+    /**
+     * Mint the NFT quantity
+    */
     async mint(quantity) {
         try { 
             const value = quantity * 1000000000000000;
@@ -29,12 +32,15 @@ class Token {
         }
     }
 
+    /**
+     * Get the Mint Rate of NFT in ether
+    */
     async getMintRate() {
         console.log(ethers.utils.formatUnits(await this.contract.getMintRate(), '18'));
     }
 }
 
-const token = new Token();
-token.mint(1);
+// const token = new Token();
+// token.mint(1);
 
-//module.exports = Token;
+module.exports = Token;

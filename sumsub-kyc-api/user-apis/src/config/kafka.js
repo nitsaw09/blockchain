@@ -12,14 +12,26 @@ class KafkaNode {
         this.consumer;
     }
 
+    /**
+     * Initialize the kafka producer
+     */
     async producerInit() {
         this.producer = this.kafka.producer();
     }
 
+    /**
+     * Initialize the kafka consumer
+     * @param {String} groupId
+     */
     async consumerInit({ groupId }) {
         this.consumer = this.kafka.consumer({ groupId });
     }
 
+    /**
+     * Send message from producer to consumer with specific topic
+     * @param {String} topic Topic to send message
+     * @param {String} message Message to send
+     */
     async senderMessage({ topic, messages = [] }) {
         try {
             await this.producer.connect();
@@ -30,6 +42,10 @@ class KafkaNode {
         }   
     }
 
+    /**
+     * receive message by consumer with topics
+     * @param {Object} topics
+     */
     async receiverMessage({ topics = [] }) {
         try {
             await this.consumer.connect()

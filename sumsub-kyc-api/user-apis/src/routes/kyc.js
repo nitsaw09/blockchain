@@ -5,6 +5,9 @@ const { createAccessToken, getApplicantData } = require("../config/sumsub");
 const db = require('../models');
 const Users = db.users;
 
+/**
+ * Create access token for accessing the sumsub WebSDK for users
+ */
 router.post("/create-access-token", async (req, res) => {
     try {
         const { email } = req.body;
@@ -23,6 +26,9 @@ router.post("/create-access-token", async (req, res) => {
     }
 });
 
+/**
+ * get the applicant details by email
+ */
 router.post('/user', async (req, res) => {
     try {
         const { email } = req.body;

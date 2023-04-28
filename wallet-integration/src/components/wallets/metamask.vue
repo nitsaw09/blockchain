@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Auth from "../../utils/NFT/Auth";
 
 export default {
@@ -17,8 +16,8 @@ export default {
       try {
         const ethereum = window.ethereum;
         if (ethereum && ethereum.isMetaMask) {
-          const auth = new Auth(ethereum);
-          const account = await auth.connectWallet();
+          const metaMask = new Auth(ethereum);
+          const account = await metaMask.connectWallet();
           if (account) {
             localStorage.setItem("wallet", "MetaMask");
             localStorage.setItem("account", account);
@@ -30,23 +29,6 @@ export default {
       } catch (err) {
         console.log(err.message);
       }
-    },
-    async userAccount(account) {
-      return await axios
-        .post("http://localhost:3001/api/auth/user/account", {
-          account
-        })
-        .then(result => result.data)
-        .catch(err => new Error(err.message));
-    },
-    async metaLogin(account, signature) {
-      return await axios
-        .post("http://localhost:3001/api/auth/login", {
-          account,
-          signature
-        })
-        .then(result => result.data)
-        .catch(err => new Error(err.message));
     }
   }
 };

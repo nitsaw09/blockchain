@@ -35,6 +35,9 @@ const kycUpdate = async ({ webhookType, data = {} }) => {
     }
 }
 
+/**
+ * Receive the applicant created status from sumsub
+ */
 router.post('/applicant-created', async (req, res) => {
     console.log('Test server Response', res);
     await kycUpdate({
@@ -45,6 +48,9 @@ router.post('/applicant-created', async (req, res) => {
     res.send('ok');
 });
 
+/**
+ * Receive the applicant reviewed status from sumsub
+ */
 router.post('/applicant-reviewed', async (req, res) => {
     console.log('Test server Response', res);
     await kycUpdate({ 
@@ -54,6 +60,9 @@ router.post('/applicant-reviewed', async (req, res) => {
     res.send('ok');
 });
 
+/**
+ * Receive the applicant pending status from sumsub
+ */
 router.post('/applicant-pending', async (req, res) => {
     //console.log('Test server Response', res);
     await kycUpdate({ 

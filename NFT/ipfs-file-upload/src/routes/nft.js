@@ -3,6 +3,10 @@ const NFT = require("../models/nft");
 const router = express.Router();
 const Token = require("../contracts/token");
 
+/**
+ * Upload NFT files and metadata
+ * req: owner(address), name(string), description(string), traits(array) 
+ */
 router.post("/upload-nft", async (req, res) => {
     try {
         const { nft } = req.files;
@@ -51,6 +55,9 @@ router.post("/upload-nft", async (req, res) => {
     } 
 });
 
+/**
+ * Create NFT collection base url for image and metadata
+ */
 router.post('/create-base-url', async (req, res) => {
     try {
         const { ipfs } = global.IPFS;
@@ -66,12 +73,18 @@ router.post('/create-base-url', async (req, res) => {
     }
 })
 
-router.get('/', async (req, res) => {
+/**
+ * Mint NFT token
+ */
+router.post('/', async (req, res) => {
     const token = new Token();
     const tokens = await token.mint(2);
     res.send(tokens);
 })
 
+/**
+ * Get the NFT base url
+ */
 router.get('/token-base-url', async (req, res) => {
     try {
         const { cid } = await global.IPFS.ipfs.files.stat('/nft/metaData');
@@ -84,6 +97,9 @@ router.get('/token-base-url', async (req, res) => {
     }
 });
 
+/**
+ * Get the NFT metadata
+ */
 router.get('/metadata/:tokenId', async (req, res) => {
     try {
         const { tokenId } = req.params;
@@ -101,6 +117,9 @@ router.get('/metadata/:tokenId', async (req, res) => {
     }
 })
 
+/**
+ * Get the NFT image file in base64
+ */
 router.get('/:cid', async (req, res) => {
     try {
         const nft = await global.IPFS.getByCID(req.params.cid);

@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-hackathon-boilerplate",
+  "name": "hardhat-boilerplate",
   "version": "1.0.0",
   "description": "A boilerplate repository to get you started with Hardhat and Ethereum development",
   "directories": {
@@ -8,21 +8,11 @@
   "scripts": {
     "test": "hardhat test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nomiclabs/hardhat-hackathon-boilerplate.git"
-  },
   "keywords": [
     "hardhat",
-    "ethereum",
-    "hackathon"
+    "ethereum"
   ],
-  "author": "Nomic Labs",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nomiclabs/hardhat-hackathon-boilerplate/issues"
-  },
-  "homepage": "https://github.com/nomiclabs/hardhat-hackathon-boilerplate#readme",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",

@@ -19,7 +19,8 @@ class Voucher {
   }
 
   async getVoucher(tokenId, uri, minPrice) {
-    return await this.voucher.createVoucher(tokenId, uri, minPrice);
+    const wei = await ethers.utils.parseUnits(minPrice, "ether");
+    return await this.voucher.createVoucher(tokenId, uri, wei.toHexString());
   }
 }
 

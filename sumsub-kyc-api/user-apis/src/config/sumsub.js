@@ -3,8 +3,8 @@ const crypto = require('crypto');
 const FormData = require('form-data');
 
 // These parameters should be used for all requests
-const SUMSUB_APP_TOKEN = '#SUMSUB_APP_TOKEN'; 
-const SUMSUB_BASE_URL = 'https://api.sumsub.com'; 
+const SUMSUB_APP_TOKEN = process.env.SUMSUB_APP_TOKEN; 
+const SUMSUB_BASE_URL = process.env.SUMSUB_BASE_URL; 
 
 var config = {};
 config.baseURL= SUMSUB_BASE_URL;

@@ -26,7 +26,6 @@ export default {
         const account = await auth.connectWallet();
         if (account) {
           localStorage.setItem("account", account);
-          console.log(account);
         }
       }
     }
